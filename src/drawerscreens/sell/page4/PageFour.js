@@ -276,7 +276,8 @@ class PageFour extends Component<Props> {
   }
 
   places = (text) => {
-    const API_KEY = GoogleApiKey;  //old play4team
+    const API_KEY = 'AIzaSyAaUwLnEmLlUS5B_tHjLvesYARTheTktus'
+    //GoogleApiKey;  //old play4team
     fetch('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + text + '&key=' + API_KEY)
       .then((response) => response.json())
       .then(async (responseJson) => {
@@ -291,7 +292,9 @@ class PageFour extends Component<Props> {
 
   }
   getLatLong = async (address) => {
-    let api_key = GoogleApiKey;
+    let api_key = 'AIzaSyAaUwLnEmLlUS5B_tHjLvesYARTheTktus'
+    
+    //GoogleApiKey;
     // console.log('get lat lng')
     fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + api_key)
       .then((response) => response.json())

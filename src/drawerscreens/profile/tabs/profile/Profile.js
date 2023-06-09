@@ -15,8 +15,9 @@ import styles from './Styles';
 import Store from '../../../../Stores';
 import Appearences from '../../../../config/Appearences';
 import { widthPercentageToDP as wp } from '../../../../helper/Responsive';
-import { withNavigation } from 'react-navigation';
+import { NavigationActions, StackActions, withNavigation } from 'react-navigation';
 import Api from '../../../../network/Api';
+import LocalDb from '../../../../storage/LocalDb';
 
 
 class Profile extends Component<Props> {
@@ -152,7 +153,37 @@ class Profile extends Component<Props> {
     }, 1000);
 
   }
-
+  _carspot_deleteAccount =  async (data) =>{
+    console.log(data)
+    let { orderStore } = Store;
+    let params = {"user_id":data}
+    let api = await Api.post('profile-delete',params)
+    console.log("apiDElResponse",api)
+    if(api.success){
+      await LocalDb.saveRememberMe("no");
+        await LocalDb.saveProfile(null);
+        await LocalDb.saveIsProfilePublic('1');
+        orderStore.dp = orderStore.defaultDp;
+        orderStore.name = orderStore.defaultName;
+        orderStore.email = '';
+        orderStore.isPublicProfile = true;
+        this.reset("Signin");
+    }
+    else{
+      Toast.show(api.message)
+    }
+  }
+  reset(route) {
+    return this.props
+      .navigation
+      .dispatch(StackActions.reset(
+        {
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: route })
+          ]
+        }));
+  }
   render() {
 
 
@@ -224,6 +255,14 @@ class Profile extends Component<Props> {
 
             </View>
           </View>
+          <View style={styles.container}>
+            <View style={styles.panel}>
+              <TouchableOpacity style={[styles.headingContainer]}
+              onPress={()=> this._carspot_deleteAccount(orderStore?.profile?.data?.id)}>
+                <Text style={[styles.headingText, { fontSize: wp('3'), fontWeight: 'bold', color: orderStore.color }]}>{orderStore?.profile?.data?.delete_user?.text +' ?'}</Text>
+              </TouchableOpacity>
+              </View>
+              </View>
         </ScrollView>
       </View>
     );

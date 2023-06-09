@@ -1686,6 +1686,9 @@ export default class PageOne extends Component<Props> {
                   stateClone[index].value = message;
 
                   this.setState({ pageOne: stateClone, titletxtTop: message, })
+                  console.log('stateClone',stateClone)
+                  console.log('message',message)
+
                 }}
               // onSubmitEditing={(e) => {
               //   let stateClone = [...this.state.pageOne];

@@ -312,7 +312,8 @@ export default class Splash extends Component<Props> {
 
 
     }
-    else { //Alert.alert('Logged');
+    else { 
+      // Alert.alert('Logged');
       let { orderStore } = Store;
       orderStore.isProfilePublic = true;
       await LocalDb.saveIsProfilePublic('1');

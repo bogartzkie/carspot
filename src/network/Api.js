@@ -10,22 +10,37 @@ import Upload from 'react-native-background-upload'
 import axios from 'axios';
 
 export const GoogleApiKey = "AIzaSyAc7OQqmjVUeNkqcvMoEXT8WkrOBlJ9810"
+// const host = 'https://www.fillacheapauto.com/wp-json/carspot/v1';
 
+// const PURCHASE_CODE = 'b45201c0-84d0-432a-9112-340f0bfddaaa';
+// const CUSTOM_SECURITY = '8NCzextVXPXILUchCp7rVJucnJ6Pf1';
 // const host = 'https://www.tomberapic.com/wp-json/carspot/v1';
 
 // const PURCHASE_CODE = '8019933b-4c3a-4748-a81e-c2156f4c016e';
 // const CUSTOM_SECURITY = '8019933b';
+
+// const host = 'https://portalpesados.com.br/wp-json/carspot/v1';
+
+// const PURCHASE_CODE = '340e29c8-0353-45e3-8b33-27ac30cf8749';
+// const CUSTOM_SECURITY = 'ajaba14254678';
 
 const host = 'https://carspot-api.scriptsbundle.com/wp-json/carspot/v1';
 
 const PURCHASE_CODE = '12';
 const CUSTOM_SECURITY = '12';
 
+// const host =  "https://autogalactic.al/wp-json/carspot/v1";
+// const PURCHASE_CODE = '2cf7b56b-69a1-461f-8543-b0d9a35a3dc1';
+// const CUSTOM_SECURITY = '22061997';
+
 // const host = 'https://carspot-multivendor.scriptsbundle.com/wp-json/carspot/v1';
 
 // const PURCHASE_CODE = '12345';
 // const CUSTOM_SECURITY = '54321';
 
+// const host = 'https://autogalactic.al/wp-json/carspot/v1';
+// const PURCHASE_CODE = '2cf7b56b-69a1-461f-8543-b0d9a35a3dc1';
+// const CUSTOM_SECURITY = '22061997';
 
 
 
